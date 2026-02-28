@@ -443,14 +443,14 @@ Made with ❤️ at TinkerHub<p align="center">
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [PHYLOCALYS]
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: [Aswathy Girish] - [Vidya Academy Of Science And Technology]
+- Member 2: [Devananda Anilkumar] - [Vidya Academy Of Science And Technology]
 
 ### Hosted Project Link
-[mention your project hosted link here]
+[https://drive.google.com/file/d/1MFTnpRWwIXV8iwhnc-33fvYglFtK9h1u/view?usp=sharing]
 
 ### Project Description
 [2-3 lines about what your project does]
@@ -798,7 +798,7 @@ python script.py -v --format json data.json
 ## Project Demo
 
 ### Video
-[Add your demo video link here - YouTube, Google Drive, etc.]
+[https://drive.google.com/file/d/1MFTnpRWwIXV8iwhnc-33fvYglFtK9h1u/view?usp=sharing]
 
 *Explain what the video demonstrates - key features, user flow, technical highlights*
 
