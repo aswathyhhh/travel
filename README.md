@@ -13,16 +13,34 @@
 - Member 2: [ASWATHY GIRISH] - [VIDYA ACADEMY OF SCIENCE AND TECHNOLOGY]
 
 ### Hosted Project Link
-[mention your project hosted link here]
+[https://drive.google.com/file/d/1MFTnpRWwIXV8iwhnc-33fvYglFtK9h1u/view?usp=sharing]
 
 ### Project Description
-[2-3 lines about what your project does]
+[This project is a Flask-based travel planning web app that helps users discover nearby tourist attractions using OpenStreetMap and Wikipedia APIs. It also estimates trip costs based on budget and number of days, and provides climate insights.]
 
 ### The Problem statement
-[What problem are you solving?]
+[The problem this project solves is:
+
+Travel planning can be overwhelming — it’s hard for users to know which attractions to visit, how much it will cost based on the number of days we planned.
+
+This app solves that by:
+
+Showing nearby tourist attractions automatically
+
+Estimating costs based on your budget and trip duration
+
+Providing climate info
+
+In short, it makes trip planning easier, smarter, and more efficient.]
 
 ### The Solution
-[How are you solving it?]
+[Automated Attraction Discovery: It uses OpenStreetMap to get location coordinates and Wikipedia’s geosearch API to find nearby tourist spots.
+
+Smart Cost Estimation: Based on user-input budget and number of days, it calculates approximate costs for food and activities, showing remaining budget.
+
+Climate changes: Uses latitude and country info to suggest best months
+
+Integrated Frontend: Presents all information in an interactive web interface with search, budget input, and visually organized results for easy planning]
 
 ---
 
@@ -31,10 +49,10 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used: [Python, HTML, CSS, JavaScript]
+- Frameworks used: [Flask]
+- Libraries used: [requests, Jinja2, Gunicorn, setuptools]
+- Tools used: [VS Code, Git, Render (for deployment)]
 
 **For Hardware:**
 - Main components: [List main components]
@@ -46,10 +64,10 @@
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Feature 1: [Nearby Attractions Search – Finds tourist spots around a given location using OpenStreetMap and Wikipedia APIs.]
+- Feature 2: [Trip Cost Estimation – Calculates food and activity expenses based on user budget and number of days, showing remaining budget.]
+- Feature 3: [Climate - Provides best months.]
+- Feature 4: [Interactive Web Interface – User-friendly frontend with search input, budget fields, and organized results for planning trips efficiently.]
 
 ---
 
