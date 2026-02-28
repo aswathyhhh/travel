@@ -136,12 +136,12 @@ List the key features of your project:
 
 #### Build Photos
 
-![Team](Add photo of your team here)
+![Team](https://drive.google.com/file/d/1eUMK9NDtDc3l0Fkdk9fqbs6HhIc-dkPK/view?usp=sharing)
 
 ![Components](Add photo of your components here)
 *List out all components shown*
 
-![Build](Add photos of build process here)
+![Build](https://drive.google.com/file/d/12CI-KKU2N_JO-1YISkeCAxZJOCcwuBSH/view?usp=sharing)
 *Explain the build steps*
 
 ![Final](Add photo of final product here)
