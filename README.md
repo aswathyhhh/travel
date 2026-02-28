@@ -2,15 +2,15 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# [TRAVEL EXPLORER] 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [PHILOCALYS]
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: [DEVANANDA ANILKUMAR] - [VIDYA ACADEMY OF SCIENCE AND TECHNOLOGY]
+- Member 2: [ASWATHY GIRISH] - [VIDYA ACADEMY OF SCIENCE AND TECHNOLOGY]
 
 ### Hosted Project Link
 [mention your project hosted link here]
