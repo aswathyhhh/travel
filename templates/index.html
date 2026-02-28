@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Explorer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --bg-gradient-start: #E0E7FF;
+            --bg-gradient-end: #F3F4F6;
+            --text-main: #1F2937;
+            --text-muted: #6B7280;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            color: var(--text-main);
+            text-align: center;
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .search-container {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .input-group:last-child {
+            margin-bottom: 0;
+        }
+
+        input {
+            flex: 1;
+            padding: 14px 16px;
+            font-size: 15px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            background-color: #F9FAFB;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        button {
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .results {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            text-align: left;
+            border: 1px solid #F3F4F6;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Distinct styling for different card types */
+        .card-cost { border-left: 4px solid #10B981; }
+        .card-climate { border-left: 4px solid #3B82F6; }
+        .card-attraction { border-left: 4px solid var(--primary); }
+
+        .card strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-content {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .distance {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 4px 10px;
+            background: #EEF2FF;
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .loading, .error {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            padding: 20px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 480px) {
+            .input-group {
+                flex-direction: column;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌍 Travel Explorer</h1>
+    <p class="subtitle">Plan your next adventure with ease.</p>
+
+    <div class="search-container">
+        <div class="input-group">
+            <input type="text" id="placeInput" placeholder="Where do you want to go? (e.g. Paris)">
+        </div>
+        
+        <div class="input-group">
+            <input type="number" id="budgetInput" placeholder="Total Budget (INR)">
+            <input type="number" id="daysInput" placeholder="Number of Days">
+        </div>
+
+        <button onclick="searchPlace()">
+            <span>Search Destination</span>
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </button>
+    </div>
+
+    <div class="results" id="results"></div>
+</div>
+
+<script>
+async function searchPlace() {
+    const place = document.getElementById("placeInput").value.trim();
+    const resultsDiv = document.getElementById("results");
+
+    resultsDiv.innerHTML = "<div class='loading'>✈️ Searching for the best spots...</div>";
+
+    if (!place) {
+        resultsDiv.innerHTML = "<div class='error'>Please enter a location to begin.</div>";
+        return;
+    }
+
+    try {
+        const budget = parseFloat(document.getElementById('budgetInput').value) || 0;
+        const days = parseInt(document.getElementById('daysInput').value) || 0;
+        const response = await fetch(`/search?place=${encodeURIComponent(place)}&budget=${budget}&days=${days}`);
+        const data = await response.json();
+
+        const attractions = data.attractions || [];
+        const cost = data.costSummary || {};
+
+        if (attractions.length === 0 && Object.keys(cost).length === 0 && !data.climate) {
+            resultsDiv.innerHTML = "<div class='error'>No results found for this destination.</div>";
+            return;
+        }
+
+        resultsDiv.innerHTML = "";
+
+        // Show cost summary if present
+        if (Object.keys(cost).length > 0) {
+            const remainingClass = cost.remainingBudget < 0 ? 'negative' : 'positive';
+            const costCard = document.createElement('div');
+            costCard.className = 'card card-cost';
+            costCard.innerHTML = `
+                <strong>💰 Cost Estimate</strong>
+                <div class="card-content">
+                    Total Food: ₹${cost.totalFood}<br>
+                    Total Activities: ₹${cost.totalActivity}<br>
+                    Total Trip: ₹${cost.totalTrip}<br>
+                    <strong>Remaining Budget: <span class="${remainingClass}">₹${cost.remainingBudget}</span></strong>
+                </div>
+            `;
+            resultsDiv.appendChild(costCard);
+            if (cost.remainingBudget < 0) {
+                const warn = document.createElement('div');
+                warn.className = 'error';
+                warn.innerText = '⚠️ You are over budget! Consider adjusting your plans.';
+                resultsDiv.appendChild(warn);
+            } else {
+                const ok = document.createElement('div');
+                ok.className = 'positive';
+                ok.innerText = '✅ You have sufficient funds for this plan.';
+                resultsDiv.appendChild(ok);
+            }
+        }
+
+        // Display climate information if available
+        if (data.climate && Object.keys(data.climate).length > 0) {
+            const cl = data.climate;
+            const climateCard = document.createElement('div');
+            climateCard.className = 'card card-climate';
+            climateCard.innerHTML = `
+                <strong>🌤️ Climate Info</strong>
+                <div class="card-content">
+                    Type: ${cl.climate_type}<br>
+                    Best months: ${cl.best_months}<br>
+                    Peak season: ${cl.peak_season ? 'Yes' : 'No'}<br>
+                    <span style="display:inline-block; margin-top:8px;">${cl.description}</span>
+                </div>
+            `;
+            resultsDiv.appendChild(climateCard);
+        }
+
+        // Display Attractions
+        attractions.forEach(item => {
+            const card = document.createElement("div");
+            card.className = "card card-attraction";
+
+            card.innerHTML = `
+                <strong>📍 ${item.name}</strong>
+                <div class="distance">
+                    🚶 ${item.distance_meters} meters away
+                </div>
+            `;
+
+            resultsDiv.appendChild(card);
+        });
+
+    } catch (error) {
+        resultsDiv.innerHTML = "<div class='error'>⚠️ Error connecting to server. Please try again.</div>";
+        console.error(error);
+    }
+}
+</script>
+
+</body>
+</html>
